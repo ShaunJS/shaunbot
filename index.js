@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const bot = new Discord.Client();
 
-const token = "NzM5NTg1MTcyMTcyNzAxODM2.XycmXQ.84Ipzx9hwcBvoDUkQMKSFSAbYnc";
+const token = JSON.parse(fs.readFileSync('config.js'));
 const PREFIX = "";
 const defaultLife = 40;
 
@@ -227,7 +227,7 @@ function sanitise(x) {
   return x;
 }
 
-bot.login(token);
+bot.login(token.token);
 
 //check user exists in data before doing mtg.leave
 //check user exists before allowing them to join twice
